@@ -20,4 +20,6 @@ public interface UserResource {
 	Response delete(Long id) throws ApiException;
 	
 	Response update(Long id, UserDTO user) throws ApiException;
+	
+	Response login(String userName, String passWord) throws ApiException;
 }
