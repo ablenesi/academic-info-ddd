@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
@@ -68,7 +69,7 @@ public class UserRepositoryImpl implements UserRepository {
 		} catch (IllegalArgumentException e) {
 			LOG.error("Delete failed", e);
 			throw new RepositoryException("Delete failed", e);
-		}		
+		}
 	}
 
 	@Override
@@ -90,6 +91,17 @@ public class UserRepositoryImpl implements UserRepository {
 			LOG.error("Update failed", e);
 			throw new RepositoryException("Update failed", e);
 		}	
+	}
+
+	@Override
+	public boolean authenticate(User user) {
+		Query query = entityManager.createQuery("SELECT u From User u WHERE u.email = :email and u.passWord = :passWord")
+				.setParameter("email", user.getEmail())
+				.setParameter("passWord",user.getPassWord());
+		
+		LOG.info("authenticating");
+		
+		return !query.getResultList().isEmpty();
 	}
 
 }

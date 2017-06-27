@@ -134,15 +134,23 @@ public class UserResourceBean implements UserResource {
 	@POST
 	@Path("/login")
 	@Override
-	public Response login(String email, String passWord) throws ApiException {
+	public Response login(UserDTO user) throws ApiException {
 		try {
 			// Authenticate the user using the credentials provided
-
-			// Issue a token for the user
-			String token = issueToken(email);
-
-			// Return the token on the response
-			return Response.ok().header(AUTHORIZATION, "Token " + token).build();
+			LOG.info("login called" + user.getEmail() + user.getPassWord());
+			
+			if(userService.authenticate(UserAdapter.toUser(user))){
+				LOG.info("login succes");
+				// Issue a token for the user
+				String token = issueToken(user.getEmail());
+	
+				// Return the token on the response
+				return Response.ok().header(AUTHORIZATION, "Token " + token).build();
+			}
+			else{
+				LOG.info("login failed");
+				return Response.status(UNAUTHORIZED).build();
+			}
 
 		} catch (Exception e) {
 			return Response.status(UNAUTHORIZED).build();

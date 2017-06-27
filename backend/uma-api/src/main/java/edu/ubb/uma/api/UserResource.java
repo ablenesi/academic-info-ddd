@@ -21,5 +21,5 @@ public interface UserResource {
 	
 	Response update(Long id, UserDTO user) throws ApiException;
 	
-	Response login(String userName, String passWord) throws ApiException;
+	Response login(UserDTO userDTO) throws ApiException;
 }

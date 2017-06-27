@@ -8,5 +8,6 @@ import edu.ubb.uma.backend.model.User;
 public interface UserRepository extends AbstractRepository<User>{
 	
 	public static final String BEAN_NAME = "ejb/UserRepository";
-		
+	
+	public boolean authenticate(User user);
 }
