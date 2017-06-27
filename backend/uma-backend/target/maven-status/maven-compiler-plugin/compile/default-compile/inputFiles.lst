@@ -1,0 +1,16 @@
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/service/impl/UserServiceBean.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/model/BaseEntity.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/service/UserService.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/service/RoleService.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/repo/impl/UserRepositoryImpl.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/service/ServiceException.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/repo/impl/RoleRepositoryImpl.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/repo/RoleRepository.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/service/AbstractService.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/service/impl/RolseServiceBean.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/repo/AbstractRepository.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/model/Role.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/BackednSandbox.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/repo/RepositoryException.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/model/User.java
+/Users/battila/Projects/Learning/University/UMA/uma-backend/src/main/java/edu/ubb/uma/backend/repo/UserRepository.java

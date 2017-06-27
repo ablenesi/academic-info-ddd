@@ -1,0 +1,12 @@
+edu/ubb/uma/api/adapter/RoleAdapter.class
+edu/ubb/uma/api/impl/RoleResourceBean.class
+edu/ubb/uma/api/RoleResource.class
+edu/ubb/uma/api/UserResource.class
+edu/ubb/uma/api/dto/UserDTO.class
+edu/ubb/uma/api/impl/RoleResourceBean$1.class
+edu/ubb/uma/api/ApiException.class
+edu/ubb/uma/api/ApiExceptionMapper.class
+edu/ubb/uma/api/impl/UserResourceBean.class
+edu/ubb/uma/api/adapter/UserAdapter.class
+edu/ubb/uma/api/impl/UserResourceBean$1.class
+edu/ubb/uma/api/dto/RoleDTO.class
