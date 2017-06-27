@@ -12,4 +12,6 @@ class SemesterPagerAdapter(val semesters: MutableList<Semester>, fragmentManager
 
     override fun getCount(): Int = semesters.size
 
+    override fun getPageTitle(position: Int): CharSequence = semesters[position].name
+
 }

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import edu.ubb.academicinfo.R
+import edu.ubb.academicinfo.databinding.FragmentSemesterBinding
 import edu.ubb.academicinfo.model.Semester
 
 class SemesterFragment : Fragment() {
@@ -25,10 +26,15 @@ class SemesterFragment : Fragment() {
         const val SEMESTER = "semester"
     }
 
-    lateinit var binding: ViewDataBinding
+    lateinit var binding: FragmentSemesterBinding
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_semester, container, false)
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding.semseter = arguments.getParcelable(SEMESTER)
     }
 }
