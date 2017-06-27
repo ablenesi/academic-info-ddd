@@ -4,4 +4,8 @@
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
     <string name="forgot_password">Forgot password</string>
+    <string name="course">Course</string>
+    <string name="mark">Mark</string>
+    <string name="credits">Credits</string>
+    <string name="media">Media</string>
 </resources>
