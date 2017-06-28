@@ -10,7 +10,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>edu.ubb.uma</groupId>
-			<artifactId>uma-backend</artifactId>
+			<artifactId>uma-domain</artifactId>
 			<type>ejb</type>
 		</dependency>
 		<dependency>

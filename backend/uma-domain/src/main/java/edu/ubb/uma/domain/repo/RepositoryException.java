@@ -1,4 +1,4 @@
-package edu.ubb.uma.backend.repo;
+package edu.ubb.uma.domain.repo;
 
 public class RepositoryException extends RuntimeException {
 	

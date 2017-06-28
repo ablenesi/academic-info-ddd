@@ -30,10 +30,10 @@ import edu.ubb.uma.api.adapter.UserAdapter;
 import edu.ubb.uma.api.dto.UserDTO;
 import edu.ubb.uma.api.util.KeyGenerator;
 import edu.ubb.uma.api.util.SimpleKeyGenerator;
-import edu.ubb.uma.backend.model.User;
-import edu.ubb.uma.backend.repo.impl.UserRepositoryImpl;
-import edu.ubb.uma.backend.service.ServiceException;
-import edu.ubb.uma.backend.service.UserService;
+import edu.ubb.uma.domain.model.User;
+import edu.ubb.uma.domain.repo.impl.UserRepositoryImpl;
+import edu.ubb.uma.domain.service.ServiceException;
+import edu.ubb.uma.domain.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 

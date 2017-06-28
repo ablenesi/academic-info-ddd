@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.ubb.uma.api.dto.UserDTO;
-import edu.ubb.uma.backend.model.Role;
-import edu.ubb.uma.backend.model.User;
+import edu.ubb.uma.domain.model.User;
 
 public class UserAdapter {
 	
@@ -19,11 +18,6 @@ public class UserAdapter {
 		user.setFullName(userDTO.getFullName());
 		user.setId(userDTO.getId());
 		user.setPassWord(userDTO.getPassWord());
-		if(user.getRole()!=null){
-			Role role = new Role();			
-			role.setRole(userDTO.getRole());
-			user.setRole(role);
-		}
 		user.setUserName(userDTO.getUserName());
 		return user;
 	}
@@ -38,9 +32,6 @@ public class UserAdapter {
 		userDTO.setFullName(user.getFullName());
 		userDTO.setId(user.getId());
 		userDTO.setPassWord(user.getPassWord());		
-		if(user.getRole()!=null){
-			userDTO.setRole(user.getRole().getRole());
-		}
 		userDTO.setUserName(user.getUserName());
 		return userDTO;
 	}

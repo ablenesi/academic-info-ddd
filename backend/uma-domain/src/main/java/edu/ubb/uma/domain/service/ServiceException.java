@@ -1,4 +1,4 @@
-package edu.ubb.uma.backend.service;
+package edu.ubb.uma.domain.service;
 
 public class ServiceException extends RuntimeException {
 

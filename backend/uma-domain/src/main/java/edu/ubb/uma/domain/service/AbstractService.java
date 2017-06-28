@@ -1,4 +1,4 @@
-package edu.ubb.uma.backend.service;
+package edu.ubb.uma.domain.service;
 
 import java.util.List;
 
