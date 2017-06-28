@@ -2,8 +2,6 @@ package edu.ubb.uma.domain.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -19,10 +17,6 @@ public class User extends BaseEntity {
 	private String passWord;
 	private String email;
 	private String adress;
-	@ManyToOne
-	@JoinColumn(name="ROLE_ID")
-	private Role role;
-	
 	public User(){
 	}
 	
@@ -59,14 +53,6 @@ public class User extends BaseEntity {
 
 	public void setAdress(String adress) {
 		this.adress = adress;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
 	}
 
 	@Override
