@@ -1,5 +1,7 @@
 package edu.ubb.uma.domain.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
@@ -17,6 +19,8 @@ public class User extends BaseEntity {
 	private String passWord;
 	private String email;
 	private String adress;
+	
+
 	public User(){
 	}
 	
@@ -63,5 +67,4 @@ public class User extends BaseEntity {
 				"; email: " + email + 
 				"; adress: " + adress;
 	}
-
 }

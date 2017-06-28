@@ -9,6 +9,6 @@ public interface UserService extends AbstractService<User> {
 	
 	public static final String BEAN_NAME = "ejb/UserService";
 	
-	public boolean authenticate(User user);
+	public User authenticate(User user);
 	
 }

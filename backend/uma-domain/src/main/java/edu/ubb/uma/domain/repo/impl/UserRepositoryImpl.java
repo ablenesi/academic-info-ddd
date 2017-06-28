@@ -94,14 +94,21 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 
 	@Override
-	public boolean authenticate(User user) {
+	public User authenticate(User user) {
 		Query query = entityManager.createQuery("SELECT u From User u WHERE u.email = :email and u.passWord = :passWord")
 				.setParameter("email", user.getEmail())
 				.setParameter("passWord",user.getPassWord());
 		
 		LOG.info("authenticating");
 		
-		return !query.getResultList().isEmpty();
+		List<User> users = query.getResultList();
+		
+		if(!users.isEmpty()){
+			return users.get(0);
+		}
+		else{
+			return null;
+		}
 	}
 
 }
