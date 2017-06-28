@@ -14,11 +14,12 @@ import edu.ubb.uma.domain.repo.SemesterRepository;
 import edu.ubb.uma.domain.repo.UserRepository;
 import edu.ubb.uma.domain.service.SemesterService;
 import edu.ubb.uma.domain.service.ServiceException;
+import edu.ubb.uma.domain.service.UserService;
 
 @Stateless(mappedName = SemesterService.BEAN_NAME)
 public class SemesterServiceBean implements SemesterService{
 	
-	private static final Logger LOG = LoggerFactory.getLogger(SemesterService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SemesterServiceBean.class);
 	
 	@EJB
 	private SemesterRepository semesterRepository;

@@ -4,14 +4,16 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 
 @Entity
 public class Semester extends BaseEntity{
+	private Long userId;
 	private String name;
-	@OneToMany(cascade={CascadeType.ALL}) @JoinColumn (name="id")
+	@OneToMany(fetch = FetchType.EAGER, cascade={CascadeType.ALL}) @JoinColumn (name="semesterId")
 	private List<Course> courses;
 	
 	public String getName() {
@@ -26,5 +28,12 @@ public class Semester extends BaseEntity{
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	
 	
 }

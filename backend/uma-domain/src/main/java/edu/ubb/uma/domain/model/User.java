@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -17,15 +18,23 @@ import javax.persistence.OneToMany;
 })
 public class User extends BaseEntity {
 	
-	@Column(unique=true)
 	private String userName;
 	private String fullName;
 	private String passWord;
+	@Column(unique=true)
 	private String email;
 	private String adress;
 	
-	@OneToMany(cascade={CascadeType.ALL}) @JoinColumn (name="id")
+	@OneToMany(fetch = FetchType.EAGER, cascade={CascadeType.ALL}) @JoinColumn (name="userId")
 	private List<Semester> semesters;
+
+	public List<Semester> getSemesters() {
+		return semesters;
+	}
+
+	public void setSemesters(List<Semester> semesters) {
+		this.semesters = semesters;
+	}
 
 	public User(){
 	}

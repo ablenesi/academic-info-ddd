@@ -5,8 +5,9 @@
     <persistence-unit name="umaPu" transaction-type="JTA">
 
         <!-- List of classes we want to manage with JPA -->
-        <class>edu.ubb.uma.backend.model.User</class>
-        <class>edu.ubb.uma.backend.model.Role</class>
+        <class>edu.ubb.uma.domain.model.User</class>
+        <class>edu.ubb.uma.domain.model.Course</class>
+        <class>edu.ubb.uma.domain.model.Semester</class>
 
         <!-- Configurations of JPA, like driver class, server URL and credentials -->
         <properties>
