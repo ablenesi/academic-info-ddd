@@ -1,8 +1,8 @@
-package edu.ubb.uma.backend.repo;
+package edu.ubb.uma.domain.repo;
 
 import javax.ejb.Local;
 
-import edu.ubb.uma.backend.model.User;
+import edu.ubb.uma.domain.model.User;
 
 @Local
 public interface UserRepository extends AbstractRepository<User>{

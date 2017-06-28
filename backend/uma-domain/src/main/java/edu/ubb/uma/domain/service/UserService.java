@@ -1,8 +1,8 @@
-package edu.ubb.uma.backend.service;
+package edu.ubb.uma.domain.service;
 
 import javax.ejb.Remote;
 
-import edu.ubb.uma.backend.model.User;
+import edu.ubb.uma.domain.model.User;
 
 @Remote
 public interface UserService extends AbstractService<User> {

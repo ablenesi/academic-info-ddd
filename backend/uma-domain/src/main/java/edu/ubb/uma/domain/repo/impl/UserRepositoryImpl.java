@@ -1,4 +1,4 @@
-package edu.ubb.uma.backend.repo.impl;
+package edu.ubb.uma.domain.repo.impl;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.ubb.uma.backend.model.User;
-import edu.ubb.uma.backend.repo.RepositoryException;
-import edu.ubb.uma.backend.repo.UserRepository;
+import edu.ubb.uma.domain.model.User;
+import edu.ubb.uma.domain.repo.RepositoryException;
+import edu.ubb.uma.domain.repo.UserRepository;
 
 @Stateless(mappedName = UserRepository.BEAN_NAME)
 public class UserRepositoryImpl implements UserRepository {

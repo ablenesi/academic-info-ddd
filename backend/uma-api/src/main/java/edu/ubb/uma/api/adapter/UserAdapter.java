@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.ubb.uma.api.dto.UserDTO;
-import edu.ubb.uma.backend.model.Role;
-import edu.ubb.uma.backend.model.User;
+import edu.ubb.uma.domain.model.Role;
+import edu.ubb.uma.domain.model.User;
 
 public class UserAdapter {
 	

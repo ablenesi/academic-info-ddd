@@ -22,10 +22,10 @@ import edu.ubb.uma.api.ApiException;
 import edu.ubb.uma.api.RoleResource;
 import edu.ubb.uma.api.adapter.RoleAdapter;
 import edu.ubb.uma.api.dto.RoleDTO;
-import edu.ubb.uma.backend.model.Role;
-import edu.ubb.uma.backend.repo.impl.UserRepositoryImpl;
-import edu.ubb.uma.backend.service.RoleService;
-import edu.ubb.uma.backend.service.ServiceException;
+import edu.ubb.uma.domain.model.Role;
+import edu.ubb.uma.domain.repo.impl.UserRepositoryImpl;
+import edu.ubb.uma.domain.service.RoleService;
+import edu.ubb.uma.domain.service.ServiceException;
 
 
 @Stateless(mappedName = RoleResource.BEAN_NAME)

@@ -7,7 +7,7 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>uma-backend</artifactId>
+	<artifactId>uma-domain</artifactId>
 	<packaging>ejb</packaging>
 	
 	<dependencies>

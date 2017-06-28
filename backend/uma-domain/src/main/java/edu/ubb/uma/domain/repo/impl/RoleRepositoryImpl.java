@@ -1,4 +1,4 @@
-package edu.ubb.uma.backend.repo.impl;
+package edu.ubb.uma.domain.repo.impl;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ import javax.persistence.PersistenceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.ubb.uma.backend.model.Role;
-import edu.ubb.uma.backend.repo.RepositoryException;
-import edu.ubb.uma.backend.repo.RoleRepository;
+import edu.ubb.uma.domain.model.Role;
+import edu.ubb.uma.domain.repo.RepositoryException;
+import edu.ubb.uma.domain.repo.RoleRepository;
 
 @Stateless(mappedName = RoleRepository.BEAN_NAME)
 public class RoleRepositoryImpl implements RoleRepository{

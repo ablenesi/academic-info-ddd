@@ -1,4 +1,4 @@
-package edu.ubb.uma.backend.model;
+package edu.ubb.uma.domain.model;
 
 import java.util.Collection;
 

@@ -4,7 +4,7 @@ import javax.ejb.Local;
 import javax.ws.rs.core.Response;
 
 import edu.ubb.uma.api.dto.UserDTO;
-import edu.ubb.uma.backend.model.User;
+import edu.ubb.uma.domain.model.User;
 
 @Local
 public interface UserResource {

@@ -1,8 +1,8 @@
-package edu.ubb.uma.backend.service;
+package edu.ubb.uma.domain.service;
 
 import javax.ejb.Remote;
 
-import edu.ubb.uma.backend.model.Role;
+import edu.ubb.uma.domain.model.Role;
 
 @Remote
 public interface RoleService extends AbstractService<Role> {

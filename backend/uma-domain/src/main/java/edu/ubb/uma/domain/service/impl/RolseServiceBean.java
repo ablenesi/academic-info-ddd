@@ -1,4 +1,4 @@
-package edu.ubb.uma.backend.service.impl;
+package edu.ubb.uma.domain.service.impl;
 
 import java.util.List;
 
@@ -8,11 +8,11 @@ import javax.ejb.Stateless;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.ubb.uma.backend.model.Role;
-import edu.ubb.uma.backend.repo.RepositoryException;
-import edu.ubb.uma.backend.repo.RoleRepository;
-import edu.ubb.uma.backend.service.RoleService;
-import edu.ubb.uma.backend.service.ServiceException;
+import edu.ubb.uma.domain.model.Role;
+import edu.ubb.uma.domain.repo.RepositoryException;
+import edu.ubb.uma.domain.repo.RoleRepository;
+import edu.ubb.uma.domain.service.RoleService;
+import edu.ubb.uma.domain.service.ServiceException;
 
 @Stateless(mappedName = RoleService.BEAN_NAME)
 public class RolseServiceBean implements RoleService {

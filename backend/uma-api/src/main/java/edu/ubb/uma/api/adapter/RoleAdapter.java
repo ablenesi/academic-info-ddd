@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.ubb.uma.api.dto.RoleDTO;
-import edu.ubb.uma.backend.model.Role;
+import edu.ubb.uma.domain.model.Role;
 
 public class RoleAdapter {
 	

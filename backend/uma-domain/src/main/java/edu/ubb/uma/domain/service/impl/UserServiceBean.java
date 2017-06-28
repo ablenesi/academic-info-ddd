@@ -1,4 +1,4 @@
-package edu.ubb.uma.backend.service.impl;
+package edu.ubb.uma.domain.service.impl;
 
 import java.util.List;
 
@@ -8,11 +8,11 @@ import javax.ejb.Stateless;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.ubb.uma.backend.model.User;
-import edu.ubb.uma.backend.repo.RepositoryException;
-import edu.ubb.uma.backend.repo.UserRepository;
-import edu.ubb.uma.backend.service.ServiceException;
-import edu.ubb.uma.backend.service.UserService;
+import edu.ubb.uma.domain.model.User;
+import edu.ubb.uma.domain.repo.RepositoryException;
+import edu.ubb.uma.domain.repo.UserRepository;
+import edu.ubb.uma.domain.service.ServiceException;
+import edu.ubb.uma.domain.service.UserService;
 
 @Stateless(mappedName = UserService.BEAN_NAME)
 public class UserServiceBean implements UserService {

@@ -1,8 +1,8 @@
-package edu.ubb.uma.backend.repo;
+package edu.ubb.uma.domain.repo;
 
 import javax.ejb.Local;
 
-import edu.ubb.uma.backend.model.Role;
+import edu.ubb.uma.domain.model.Role;
 
 @Local
 public interface RoleRepository extends AbstractRepository<Role> {
