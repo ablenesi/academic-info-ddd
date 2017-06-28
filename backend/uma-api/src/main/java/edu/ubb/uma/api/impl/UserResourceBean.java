@@ -27,13 +27,16 @@ import edu.ubb.uma.api.JWTTokenNeeded;
 import edu.ubb.uma.api.UserResource;
 import edu.ubb.uma.api.adapter.SemesterAdapter;
 import edu.ubb.uma.api.adapter.UserAdapter;
+import edu.ubb.uma.api.dto.CourseDTO;
 import edu.ubb.uma.api.dto.SemesterDTO;
 import edu.ubb.uma.api.dto.UserDTO;
 import edu.ubb.uma.api.util.KeyGenerator;
 import edu.ubb.uma.api.util.SimpleKeyGenerator;
+import edu.ubb.uma.domain.model.Mark;
 import edu.ubb.uma.domain.model.Semester;
 import edu.ubb.uma.domain.model.User;
 import edu.ubb.uma.domain.repo.impl.UserRepositoryImpl;
+import edu.ubb.uma.domain.service.MarkService;
 import edu.ubb.uma.domain.service.SemesterService;
 import edu.ubb.uma.domain.service.ServiceException;
 import edu.ubb.uma.domain.service.UserService;
@@ -61,6 +64,10 @@ public class UserResourceBean implements UserResource {
 	
 	@EJB
 	SemesterService semesterService;
+	
+	@EJB
+	MarkService markService;
+	
 
 	@Context
 	private UriInfo uriInfo;
@@ -188,7 +195,14 @@ public class UserResourceBean implements UserResource {
 		LOG.info("findSemestersByUserId called");
 		try {
 			List<Semester> list = semesterService.findSemestersByUserId(id);
-			return Response.ok(new GenericEntity<List<SemesterDTO>>(SemesterAdapter.fromList(list)) {
+			List<SemesterDTO> listDTO = SemesterAdapter.fromList(list);
+			for(SemesterDTO semDTO : listDTO){
+				for(CourseDTO courseDTO : semDTO.getCourses()){
+					Mark mark = markService.findByUserCourse(id, courseDTO.getId());
+					courseDTO.setMark(mark == null ? 5 : mark.getMark());
+				}
+			}
+			return Response.ok(new GenericEntity<List<SemesterDTO>>(listDTO) {
 			}).build();
 		} catch (ServiceException e) {
 			LOG.error("findSemestersByUserId failed", e);

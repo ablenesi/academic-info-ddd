@@ -6,6 +6,7 @@ public class CourseDTO {
 	private String name;
 	private String teacher;
 	private int credit;
+	private int mark;
 	public String getName() {
 		return name;
 	}
@@ -36,5 +37,12 @@ public class CourseDTO {
 	public void setSemesterId(Long semesterId) {
 		this.semesterId = semesterId;
 	}
+	public int getMark() {
+		return mark;
+	}
+	public void setMark(int mark) {
+		this.mark = mark;
+	}
+	
 	
 }
