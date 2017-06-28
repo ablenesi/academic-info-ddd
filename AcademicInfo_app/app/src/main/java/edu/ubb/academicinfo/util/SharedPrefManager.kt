@@ -28,7 +28,7 @@ class SharedPreferenceManager @Inject constructor(context: Context) {
         return if (getString(SERVER_IP_KEY) != "") {
             getString(SERVER_IP_KEY)
         } else {
-            "192.168.43.190"
+            "192.168.100.4"
         }
     }
 

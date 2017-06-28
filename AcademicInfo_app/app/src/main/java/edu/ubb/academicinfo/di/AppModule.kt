@@ -15,7 +15,8 @@ import javax.inject.Singleton
 @Module
 class AppModule(private val app: Application) {
 
-    @Singleton @Provides
+    @Singleton
+    @Provides
     fun provideContext(): Context = app.applicationContext
 
     @Provides
@@ -27,7 +28,8 @@ class AppModule(private val app: Application) {
                 .build()
     }
 
-    @Singleton @Provides
+    @Singleton
+    @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient, sharePref: SharedPreferenceManager): Retrofit {
         return Retrofit.Builder()
                 .baseUrl("http://${sharePref.getIP()}:${sharePref.getPort()}/uma-api/")
@@ -36,7 +38,8 @@ class AppModule(private val app: Application) {
                 .build()
     }
 
-    @Singleton @Provides
+    @Singleton
+    @Provides
     fun provideAuthService(retrofit: Retrofit): AuthenticationService {
         return retrofit.create(AuthenticationService::class.java)
     }

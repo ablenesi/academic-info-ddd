@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity(), LoginViewModel.EventHandler {
     }
 
     override fun showError(error: String) {
-        Snackbar.make(binding.root, error, Snackbar.LENGTH_LONG)
+        Snackbar.make(binding.root, error, Snackbar.LENGTH_LONG).show()
     }
 
     override fun loginSuccess(user: User?) {

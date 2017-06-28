@@ -43,4 +43,8 @@ class LoginViewModel(val handler: LoginViewModel.EventHandler) {
 
         })
     }
+
+    init {
+        AcademicInfoApp.appComponent.inject(this)
+    }
 }
