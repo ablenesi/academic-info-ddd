@@ -78,7 +78,13 @@ public class UserServiceBean implements UserService {
 
 	@Override
 	public User authenticate(User user) {
-		return userRepository.authenticate(user);
+		User completeUser = userRepository.findByEmail(user);
+		if(completeUser != null && completeUser.getPassWord().equals(user.getPassWord())){
+			return completeUser;
+		}
+		else{
+			return null;
+		}
 	}
 
 }

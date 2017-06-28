@@ -9,5 +9,5 @@ public interface UserRepository extends AbstractRepository<User>{
 	
 	public static final String BEAN_NAME = "ejb/UserRepository";
 	
-	public User authenticate(User user);
+	public User findByEmail(User user);
 }

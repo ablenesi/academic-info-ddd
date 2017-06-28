@@ -94,10 +94,9 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 
 	@Override
-	public User authenticate(User user) {
-		Query query = entityManager.createQuery("SELECT u From User u WHERE u.email = :email and u.passWord = :passWord")
-				.setParameter("email", user.getEmail())
-				.setParameter("passWord",user.getPassWord());
+	public User findByEmail(User user) {
+		Query query = entityManager.createQuery("SELECT u From User u WHERE u.email = :email")
+				.setParameter("email", user.getEmail());
 		
 		LOG.info("authenticating");
 		

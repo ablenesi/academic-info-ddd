@@ -2,10 +2,14 @@ package edu.ubb.uma.domain.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+
 
 @Entity
 @NamedQueries({
@@ -20,6 +24,8 @@ public class User extends BaseEntity {
 	private String email;
 	private String adress;
 	
+	@OneToMany(cascade={CascadeType.ALL}) @JoinColumn (name="id")
+	private List<Semester> semesters;
 
 	public User(){
 	}

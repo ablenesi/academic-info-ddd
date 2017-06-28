@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -26,12 +25,16 @@ import org.slf4j.LoggerFactory;
 import edu.ubb.uma.api.ApiException;
 import edu.ubb.uma.api.JWTTokenNeeded;
 import edu.ubb.uma.api.UserResource;
+import edu.ubb.uma.api.adapter.SemesterAdapter;
 import edu.ubb.uma.api.adapter.UserAdapter;
+import edu.ubb.uma.api.dto.SemesterDTO;
 import edu.ubb.uma.api.dto.UserDTO;
 import edu.ubb.uma.api.util.KeyGenerator;
 import edu.ubb.uma.api.util.SimpleKeyGenerator;
+import edu.ubb.uma.domain.model.Semester;
 import edu.ubb.uma.domain.model.User;
 import edu.ubb.uma.domain.repo.impl.UserRepositoryImpl;
+import edu.ubb.uma.domain.service.SemesterService;
 import edu.ubb.uma.domain.service.ServiceException;
 import edu.ubb.uma.domain.service.UserService;
 import io.jsonwebtoken.Jwts;
@@ -55,6 +58,9 @@ public class UserResourceBean implements UserResource {
 
 	@EJB
 	UserService userService;
+	
+	@EJB
+	SemesterService semesterService;
 
 	@Context
 	private UriInfo uriInfo;
@@ -64,7 +70,6 @@ public class UserResourceBean implements UserResource {
 	@Override
 	@GET
 	@Path("/{id}")
-	@JWTTokenNeeded
 	public Response findById(@PathParam(value = "id") Long id) throws ApiException {
 		LOG.info("findById called");
 		try {
@@ -75,6 +80,8 @@ public class UserResourceBean implements UserResource {
 			throw new ApiException("findById failed", e);
 		}
 	}
+	
+	
 
 	@Override
 	@GET
@@ -173,5 +180,20 @@ public class UserResourceBean implements UserResource {
 	private Date toDate(LocalDateTime localDateTime) {
 		return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
 	}
-
+	
+	@Override
+	@GET
+	@Path("/{id}/semesters")
+	@JWTTokenNeeded
+	public Response findSemestersByUserId(@PathParam(value = "id") Long id) throws ApiException {
+		LOG.info("findSemestersByUserId called");
+		try {
+			List<Semester> list = semesterService.findSemestersByUserId(id);
+			return Response.ok(new GenericEntity<List<SemesterDTO>>(SemesterAdapter.fromList(list)) {
+			}).build();
+		} catch (ServiceException e) {
+			LOG.error("findSemestersByUserId failed", e);
+			throw new ApiException("findSemestersByUserId failed", e);
+		}
+	}
 }

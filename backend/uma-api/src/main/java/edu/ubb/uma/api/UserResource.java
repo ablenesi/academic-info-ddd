@@ -22,4 +22,6 @@ public interface UserResource {
 	Response update(Long id, UserDTO user) throws ApiException;
 	
 	Response login(UserDTO userDTO) throws ApiException;
+	
+	Response findSemestersByUserId(Long id) throws ApiException;
 }
