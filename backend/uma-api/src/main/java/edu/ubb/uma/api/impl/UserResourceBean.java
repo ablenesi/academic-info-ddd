@@ -139,13 +139,18 @@ public class UserResourceBean implements UserResource {
 			// Authenticate the user using the credentials provided
 			LOG.info("login called" + user.getEmail() + user.getPassWord());
 			
-			if(userService.authenticate(UserAdapter.toUser(user))){
+			User completeUser = userService.authenticate(UserAdapter.toUser(user));
+			if(completeUser != null){
 				LOG.info("login succes");
 				// Issue a token for the user
 				String token = issueToken(user.getEmail());
 	
+				
 				// Return the token on the response
-				return Response.ok().header(AUTHORIZATION, "Token " + token).build();
+				return Response.ok(UserAdapter.fromUser(completeUser))
+						.header(AUTHORIZATION, "Token " + token)
+						.build();
+			
 			}
 			else{
 				LOG.info("login failed");
@@ -155,7 +160,6 @@ public class UserResourceBean implements UserResource {
 		} catch (Exception e) {
 			return Response.status(UNAUTHORIZED).build();
 		}
-
 	}
 
 	private String issueToken(String login) {

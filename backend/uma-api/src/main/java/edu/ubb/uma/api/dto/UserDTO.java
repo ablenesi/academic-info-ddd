@@ -8,7 +8,6 @@ public class UserDTO {
 	private String passWord;
 	private String email;
 	private String adress;
-	private String role;
 	
 	public UserDTO(){
 		
@@ -50,15 +49,10 @@ public class UserDTO {
 	public void setAdress(String adress) {
 		this.adress = adress;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+
 	@Override
 	public String toString() {
 		return "UserDTO [id=" + id + ", userName=" + userName + ", fullName=" + fullName + 
-				", email=" + email + ", adress=" + adress + ", role=" + role + "]";
+				", email=" + email + ", adress=" + adress + ", role=" + "]";
 	}
 }

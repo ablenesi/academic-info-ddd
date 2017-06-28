@@ -77,7 +77,7 @@ public class UserServiceBean implements UserService {
 	}
 
 	@Override
-	public boolean authenticate(User user) {
+	public User authenticate(User user) {
 		return userRepository.authenticate(user);
 	}
 
