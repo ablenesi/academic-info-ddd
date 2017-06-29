@@ -2,6 +2,7 @@ package edu.ubb.uma.domain.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -10,9 +11,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import edu.ubb.uma.domain.model.Course;
+import edu.ubb.uma.domain.model.Mark;
 import edu.ubb.uma.domain.model.Semester;
 import edu.ubb.uma.domain.model.User;
+import edu.ubb.uma.domain.repo.MarkRepository;
 import edu.ubb.uma.domain.repo.RepositoryException;
+import edu.ubb.uma.domain.repo.SemesterRepository;
 import edu.ubb.uma.domain.repo.UserRepository;
 import edu.ubb.uma.domain.service.MockService;
 import edu.ubb.uma.domain.service.ServiceException;
@@ -24,6 +28,9 @@ public class MockServiceBean implements MockService{
 	
 	@EJB
 	private UserRepository userRepo;
+	
+	@EJB
+	private MarkRepository markRepo;
 
 	@Override
 	public void mockEverything() {
@@ -53,9 +60,25 @@ public class MockServiceBean implements MockService{
 			user.setSemesters(semesters);
 			userRepo.save(user);
 			
+			mockMarks(user);
+			
+			
 		} catch (RepositoryException e) {
 			LOG.error("mockEverything failed", e);
 			throw new ServiceException("mockEverything failed", e);
+		}
+	}
+	
+	public void mockMarks(User u){
+		User user = userRepo.findByEmail(u);
+		for(Semester sem : user.getSemesters()){
+			for(Course course : sem.getCourses()){
+				Mark mark = new Mark();
+				mark.setUserId(u.getId());
+				mark.setCourseId(course.getId());
+				mark.setMark(ThreadLocalRandom.current().nextInt(4, 10 + 1));
+				markRepo.save(mark);
+			}
 		}
 	}
 }

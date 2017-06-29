@@ -190,6 +190,7 @@ public class UserResourceBean implements UserResource {
 	
 	@Override
 	@GET
+	@JWTTokenNeeded
 	@Path("/{id}/semesters")
 	public Response findSemestersByUserId(@PathParam(value = "id") Long id) throws ApiException {
 		LOG.info("findSemestersByUserId called");
