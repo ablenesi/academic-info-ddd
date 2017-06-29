@@ -5,6 +5,7 @@ import edu.ubb.academicinfo.AcademicInfoApp
 import edu.ubb.academicinfo.api.AuthenticationService
 import edu.ubb.academicinfo.api.LoginDTO
 import edu.ubb.academicinfo.model.User
+import edu.ubb.academicinfo.util.SharedPreferenceManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,6 +20,8 @@ class LoginViewModel(val handler: LoginViewModel.EventHandler) {
 
     @Inject
     lateinit var authService: AuthenticationService
+    @Inject
+    lateinit var sharedPref: SharedPreferenceManager
 
     init {
         AcademicInfoApp.appComponent.inject(this)
@@ -33,6 +36,11 @@ class LoginViewModel(val handler: LoginViewModel.EventHandler) {
         loading.set(true)
         authService.login(LoginDTO(email, password)).enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>?, response: Response<User>?) {
+                if (response?.body() != null) {
+                    sharedPref.setID(response.body().id)
+                } else {
+                    handler.showError("Unexpected login response")
+                }
                 handler.loginSuccess(response?.body())
             }
 

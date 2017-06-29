@@ -7,7 +7,7 @@ import retrofit2.http.POST
 
 interface AuthenticationService {
 
-    @POST("users/login")
+    @POST("login")
     fun login(@Body login: LoginDTO): Call<User>
 
 }
