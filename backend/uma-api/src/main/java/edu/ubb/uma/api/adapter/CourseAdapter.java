@@ -15,8 +15,6 @@ public class CourseAdapter {
 			return null;
 		}
 		CourseDTO courseDTO = new CourseDTO();
-		courseDTO.setId(course.getId());
-		courseDTO.setSemesterId(course.getSemesterId());
 		courseDTO.setName(course.getName());
 		courseDTO.setTeacher(course.getTeacher());
 		courseDTO.setCredit(course.getCredit());

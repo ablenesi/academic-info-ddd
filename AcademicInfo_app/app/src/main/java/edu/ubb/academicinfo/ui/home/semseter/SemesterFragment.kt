@@ -16,6 +16,7 @@ class SemesterFragment : Fragment() {
     companion object {
         fun newInstance(semester: Semester): SemesterFragment {
             val args = Bundle()
+            var set = setOf<String>()
             args.putParcelable(SEMESTER, semester)
 
             val fragment = SemesterFragment()
@@ -36,6 +37,7 @@ class SemesterFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.semseter = arguments.getParcelable(SEMESTER)
+        binding.recyler.adapter = CourseListAdapter(binding.semseter.courses)
     }
 
 }

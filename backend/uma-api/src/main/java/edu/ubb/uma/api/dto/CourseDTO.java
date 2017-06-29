@@ -2,11 +2,11 @@ package edu.ubb.uma.api.dto;
 
 public class CourseDTO {
 	private Long id;
-	private Long semesterId;
 	private String name;
 	private String teacher;
 	private int credit;
 	private int mark;
+	
 	public String getName() {
 		return name;
 	}
@@ -31,18 +31,10 @@ public class CourseDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getSemesterId() {
-		return semesterId;
-	}
-	public void setSemesterId(Long semesterId) {
-		this.semesterId = semesterId;
-	}
 	public int getMark() {
 		return mark;
 	}
 	public void setMark(int mark) {
 		this.mark = mark;
 	}
-	
-	
 }

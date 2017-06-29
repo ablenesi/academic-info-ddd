@@ -162,7 +162,7 @@ public class UserResourceBean implements UserResource {
 				
 				// Return the token on the response
 				return Response.ok(UserAdapter.fromUser(completeUser))
-						.header(AUTHORIZATION, "Token " + token)
+						.header(AUTHORIZATION, token)
 						.build();
 			
 			}

@@ -25,7 +25,7 @@ class HomeActivity : AppCompatActivity(), HomeViewModel.EventHandler {
     override fun dataLoaded(semesters: List<Semester>?) {
 //        binding.pager.adapter = SemesterPagerAdapter(listOf(Semester("2016/2017 I", 8.92f, 30, emptyList<Course>().toMutableList())).toMutableList(), supportFragmentManager)
         if (semesters != null) {
-            binding.pager.adapter = SemesterPagerAdapter(semesters.toMutableList(), supportFragmentManager)
+            binding.pager.adapter = SemesterPagerAdapter(semesters.toMutableSet().toMutableList(), supportFragmentManager)
             binding.tabLayout.setupWithViewPager(binding.pager)
         }
     }

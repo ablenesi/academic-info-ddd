@@ -13,8 +13,6 @@ public class SemesterAdapter {
 			return null;
 		}
 		SemesterDTO semesterDTO = new SemesterDTO();
-		semesterDTO.setId(semester.getId());
-		semesterDTO.setUserId(semester.getUserId());
 		semesterDTO.setName(semester.getName());
 		semesterDTO.setCourses(CourseAdapter.fromList(semester.getCourses()));  
 		return semesterDTO;
