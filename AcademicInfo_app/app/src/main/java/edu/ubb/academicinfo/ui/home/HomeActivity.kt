@@ -15,6 +15,7 @@ class HomeActivity : AppCompatActivity(), HomeViewModel.EventHandler {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+        binding.viewModel = HomeViewModel(this)
     }
 
     override fun showError(error: String) {

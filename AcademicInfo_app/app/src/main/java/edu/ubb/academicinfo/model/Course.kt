@@ -3,17 +3,19 @@ package edu.ubb.academicinfo.model
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Course(val name: String, val teacher: String, val mark: Int) : Parcelable {
+data class Course(val name: String, val teacher: String, val mark: Int, val credit: Int) : Parcelable {
 
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
+            parcel.readInt(),
             parcel.readInt())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
         parcel.writeString(teacher)
         parcel.writeInt(mark)
+        parcel.writeInt(credit)
     }
 
     override fun describeContents(): Int {
